@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// 导入刚才编写的组件
 import AppIndex from '@/components/home/AppIndex'
 import Login from '@/components/Login'
 
@@ -19,7 +18,10 @@ export default new Router({
     {
       path: '/index',
       name: 'AppIndex',
-      component: AppIndex
+      component: AppIndex,
+      meta: {
+        requireAuth: true
+      }
     }
   ]
 })

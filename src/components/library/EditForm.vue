@@ -25,7 +25,7 @@
           <el-input type="textarea" v-model="form.abs" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">
-          <el-select v-model="form.category.id" placeholder="请选择分类" @change="select_status()">
+          <el-select v-model="form.category.id" placeholder="请选择分类">
             <el-option label="文学" value="1"></el-option>
             <el-option label="流行" value="2"></el-option>
             <el-option label="文化" value="3"></el-option>
@@ -78,7 +78,10 @@ export default {
         press: '',
         cover: '',
         abs: '',
-        category: ''
+        category: {
+          id: '',
+          name: ''
+        }
       }
     },
     onSubmit () {
@@ -99,9 +102,6 @@ export default {
             this.$emit('onSubmit')
           }
         })
-    },
-    select_status () {
-      this.$forceUpdate()
     }
   }
 }

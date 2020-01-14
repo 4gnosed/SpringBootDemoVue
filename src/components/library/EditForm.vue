@@ -7,7 +7,7 @@
       @close="clear">
       <el-form v-model="form" style="text-align: left" ref="dataForm">
         <el-form-item label="书名" :label-width="formLabelWidth" prop="title">
-          <el-input v-model="form.title" autocomplete="off" placeholder=""></el-input>
+          <el-input v-model="form.title" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="作者" :label-width="formLabelWidth" prop="author">
           <el-input v-model="form.author" autocomplete="off"></el-input>
@@ -25,7 +25,7 @@
           <el-input type="textarea" v-model="form.abs" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">
-          <el-select v-model="form.category.id" placeholder="请选择分类">
+          <el-select v-model="form.category.id" placeholder="请选择分类" @change="select_status()">
             <el-option label="文学" value="1"></el-option>
             <el-option label="流行" value="2"></el-option>
             <el-option label="文化" value="3"></el-option>
@@ -91,13 +91,17 @@ export default {
           date: this.form.date,
           press: this.form.press,
           abs: this.form.abs,
-          category: this.form.category
+          // category: this.form.category
+          cid: this.form.category.id
         }).then(resp => {
           if (resp && resp.status === 200) {
             this.dialogFormVisible = false
             this.$emit('onSubmit')
           }
         })
+    },
+    select_status () {
+      this.$forceUpdate()
     }
   }
 }

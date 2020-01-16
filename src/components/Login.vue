@@ -13,6 +13,7 @@
       </el-form-item>
       <el-form-item style="width: 100%">
         <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="login">登录</el-button>
+        <router-link to="register"><el-button type="primary" style="width: 100%;background: #505458;border: none">没用账户？ 先注册</el-button></router-link>
       </el-form-item>
     </el-form>
   </body>

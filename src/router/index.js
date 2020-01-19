@@ -33,7 +33,7 @@ export default new Router({
           path: '/index',
           name: 'AppIndex',
           component: AppIndex,
-          // 元数据requireAuth该组件是否需要拦截
+          // 元数据requireAuth该页面是否需要拦截
           meta: {
             requireAuth: true
           }
